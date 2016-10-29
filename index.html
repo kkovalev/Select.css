@@ -1,13 +1,12 @@
 <link rel="stylesheet" href="style.css">
 <script src="select.js"></script>
 
-<input type="text" id="text">
+<select name="s" id="select">
+    <option value="111">1text1</option>
+    <option value="222">2text2</option>
+    <option value="333">3text3</option>
+</select>
 
 <script>
-    const mySelect = new Select('text');
-    mySelect.setList([
-        '1111',
-        '22222',
-        '33333'
-    ]);
+    const mySelect = new Select('select');
 </script>

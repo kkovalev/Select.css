@@ -1,6 +1,7 @@
 class Select{
     constructor(id){
         let replacement = document.querySelector(`#${id}`);
+        if(replacement.tagName != 'SELECT') return;
 
         let dropDown = document.createElement('div');
         dropDown.id = 'dropdown';
@@ -13,26 +14,32 @@ class Select{
 
         dropDown.appendChild(mainInput);
         dropDown.appendChild(options);
-        this.dropDown = dropDown;
         this.options = options;
+        this.name = replacement.name;
+        this.setList(replacement.querySelectorAll('option'));
 
         replacement.parentNode.replaceChild(dropDown, replacement);
-        return this;
     }
 
-    setList(arr){
-        this.options
-            .innerHTML = arr.map(item => {
-                return `
-                    <label>
-                        <input type="radio" name="r">
-                        <div class="value">${item}</div>
-                    </label>
-                `;
-            }).join('');
+    setList(options){
+        let dd_options = '';
+        for(let i = 0; i < options.length; i++){
+            dd_options += this.getOption(options[i]);
+        }
+
+        this.options.innerHTML = dd_options;
+    }
+
+    getOption(option){
+        return `
+            <label>
+                <input type="radio" name="${this.name}" value="${option.value}">
+                <div class="value">${option.innerText}</div>
+            </label>
+        `;
     }
 
     get value(){
-        return this.options.querySelector(':checked + .value').innerText;
+        return this.options.querySelector(':checked').value;
     }
 }

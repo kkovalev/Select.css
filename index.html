@@ -1,27 +1,13 @@
 <link rel="stylesheet" href="style.css">
+<script src="select.js"></script>
 
-<div class="dropdown" id="dropdown">
-    <input type="text">
-    <div class="options">
-        <label>
-            <input type="radio" name="r" checked>
-            <div class="value">11111</div>
-        </label>
-        <label>
-            <input type="radio" name="r">
-            <div class="value">2222</div>
-        </label>
-        <label>
-            <input type="radio" name="r">
-            <div class="value">33333</div>
-        </label>
-        <label>
-            <input type="radio" name="r">
-            <div class="value">44444</div>
-        </label>
-        <label>
-            <input type="radio" name="r">
-            <div class="value">5555</div>
-        </label>
-    </div>
-</div>
+<input type="text" id="text">
+
+<script>
+    const mySelect = new Select('text');
+    mySelect.setList([
+        '1111',
+        '22222',
+        '33333'
+    ]);
+</script>

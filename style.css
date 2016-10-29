@@ -26,10 +26,12 @@ body{
 /* Логика */
 #dropdown{
     position: relative;
+    --item-height: 30px;
+    --list-height: 200px;
 }
 #dropdown,
 #dropdown .options .value{
-    height: 30px;
+    height: var(--item-height);
 }
 #dropdown input{
     opacity: 0;
@@ -39,26 +41,23 @@ body{
     position: absolute;
     width: 100%;
     top: 0;
-    padding-top: 30px;
+    padding-top: var(--item-height);
     overflow: hidden;
     height: 0;
     transition: 0s .1s height;
 }
 #dropdown > input:focus + .options{
-    height: 200px;
+    height: var(--list-height);
     overflow-y: scroll;
 }
 #dropdown .options :checked + .value{
     position: absolute;
     top: 0;
 }
-#dropdown > input{
+#dropdown > input:not(:focus){
     width: 100%;
     height: 100%;
     display: block;
     z-index: 3;
     position: relative;
-}
-#dropdown > input:focus{
-    z-index: 0;
 }

@@ -1,0 +1,67 @@
+#dropdown{
+    position: relative;
+}
+#dropdown .options{
+    position: absolute;
+    top: 100%;
+    width: 100%;
+}
+#dropdown [type=radio]{
+    opacity: 0;
+    position: absolute;
+}
+#dropdown .options label{
+    display: flex;
+    align-items: center;
+}
+#dropdown,
+.options .value{
+    height: 30px;
+}
+#dropdown .value:hover,
+.options :checked + .value{
+    background-color: #dadada;
+}
+#dropdown .main{
+    display: block;
+    height: 100%;
+    z-index: 2;
+    position: relative;
+}
+.options .value{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-indent: 10px;
+}
+.options :checked + .value{
+    position: absolute;
+    top: 0;
+}
+
+
+
+#dropdown > label{
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 3;
+    position: relative;
+}
+#dropdown > label + input{
+    position: absolute;
+    top: 0;
+    opacity: 0;
+}
+#dropdown .options{
+    top: 0;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+    transition: 0s .1s height;
+}
+#dropdown > input:focus + .options{
+    height: 200px;
+    overflow-y: scroll;
+}
+

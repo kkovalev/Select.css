@@ -6,28 +6,25 @@ class Select{
         let dropDown = document.createElement('div');
         dropDown.id = 'dropdown';
 
-        let mainInput = document.createElement('input');
-        mainInput.type = 'text';
+        dropDown.innerHTML = `
+            <input type="text">
+            <div class="options">
+                ${this.getList(replacement.querySelectorAll('option'))}
+            </div>
+        `;
 
-        let options = document.createElement('div');
-        options.className = 'options';
-
-        dropDown.appendChild(mainInput);
-        dropDown.appendChild(options);
-        this.options = options;
+        this.options = dropDown.querySelector('.options');
         this.name = replacement.name;
-        this.setList(replacement.querySelectorAll('option'));
 
         replacement.parentNode.replaceChild(dropDown, replacement);
     }
 
-    setList(options){
+    getList(options){
         let dd_options = '';
         for(let option of options){
             dd_options += this.getOption(option);
         }
-
-        this.options.innerHTML = dd_options;
+        return dd_options;
     }
 
     getOption(option){

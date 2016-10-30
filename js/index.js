@@ -23,8 +23,8 @@ class Select{
 
     setList(options){
         let dd_options = '';
-        for(let i = 0; i < options.length; i++){
-            dd_options += this.getOption(options[i]);
+        for(let option of options){
+            dd_options += this.getOption(option);
         }
 
         this.options.innerHTML = dd_options;

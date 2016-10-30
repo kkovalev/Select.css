@@ -1,12 +1,27 @@
 <link rel="stylesheet" href="style.css">
-<script src="select.js"></script>
 
-<select name="s" id="select">
-    <option value="111">1text1</option>
-    <option value="222">2text2</option>
-    <option value="333">3text3</option>
-</select>
-
-<script>
-    const mySelect = new Select('select');
-</script>
+<div class="dropdown" id="dropdown">
+    <input type="text">
+    <div class="options">
+        <label>
+            <input type="radio" name="r" value="111" checked>
+            <div class="value">11text11</div>
+        </label>
+        <label>
+            <input type="radio" name="r" value="222">
+            <div class="value">22text22</div>
+        </label>
+        <label>
+            <input type="radio" name="r" value="333">
+            <div class="value">33text33</div>
+        </label>
+        <label>
+            <input type="radio" name="r" value="444">
+            <div class="value">44text44</div>
+        </label>
+        <label>
+            <input type="radio" name="r" value="555">
+            <div class="value">55text55s</div>
+        </label>
+    </div>
+</div>

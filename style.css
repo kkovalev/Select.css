@@ -9,7 +9,6 @@ body{
     width: 200px;
     border-radius: 2px;
 }
-
 #dropdown .value:hover,
 #dropdown :checked + .value{
     background-color: #dadada;
@@ -45,7 +44,7 @@ body{
     height: 0;
     transition: 0s .1s height;
 }
-#dropdown > input:focus + .options{
+#dropdown > :focus + .options{
     height: var(--list-height);
     overflow-y: scroll;
 }

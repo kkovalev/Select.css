@@ -8,5 +8,22 @@
 </select>
 
 <script>
-    const mySelect = new Select('select');
+    const mySelect = new Select('select', true);
 </script>
+
+
+<style>
+    #dropdown > input{
+        width: 100%;
+        height: 100%;
+        display: block;
+        z-index: 3;
+    }
+    #dropdown > input:focus{
+        opacity: 1;
+        transform: translateY(calc(100% + 2px));
+    }
+    #dropdown .options{
+        padding-top: calc(var(--item-height) * 2);
+    }
+</style>

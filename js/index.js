@@ -1,5 +1,5 @@
 class Select{
-    constructor(id){
+    constructor(id, search){
         let replacement = document.querySelector(`#${id}`);
         if(replacement.tagName != 'SELECT') return;
 
@@ -17,6 +17,8 @@ class Select{
         this.name = replacement.name;
 
         replacement.parentNode.replaceChild(dropDown, replacement);
+
+        if(search) this.initSearchable(dropDown);
     }
 
     getList(options){
@@ -38,5 +40,24 @@ class Select{
 
     get value(){
         return this.options.querySelector(':checked').value;
+    }
+
+    initSearchable(dropDown){
+        var self = this;
+        let style = document.createElement('style');
+        dropDown.appendChild(style);
+
+        dropDown.querySelector(':scope > input').addEventListener('input', function () {
+            style.innerHTML = self.generateCSS(this.value);
+        })
+    }
+
+    generateCSS(value){
+        if(!value) return '';
+        return `
+            #dropdown .options :not(:checked):not([value*="${value}"]) + .value {
+                display:none;
+            }
+        `;
     }
 }

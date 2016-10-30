@@ -13,4 +13,10 @@
 
 ```javascript
 const mySelect = new Select('select');
+mySelect.value // вернет текущее выбранное значение
+```
+
+Чтобы инициализировать строку поиска, передаем вторым параметром true
+```javascript
+const mySelect = new Select('select', true);
 ```
